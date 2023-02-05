@@ -1,0 +1,2 @@
+export const LOGIN_URL = 'https://triplebg003-api.tripleplus.io';
+export const AZURE_FUNCTION = 'https://triplebg.azurewebsites.net/api/HttpTrigger1?code=7ap1O3HL-V-PdaBzeDGsg9ylgyzxMc7n_eafY6wYlopRAzFuxxH6yg==';
