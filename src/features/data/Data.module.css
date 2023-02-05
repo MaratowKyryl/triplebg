@@ -1,0 +1,9 @@
+.table {
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+td {
+  height: 20px;
+}

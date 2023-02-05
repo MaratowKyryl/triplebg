@@ -7,8 +7,8 @@ export interface IdentityState {
 }
 
 const initialState: IdentityState = {
-  token: '123jahksufdhi',
-  loading: false
+  token: undefined,
+  loading: false,
 }
 
 export const login = createAsyncThunk(
@@ -30,7 +30,7 @@ export const identitySlice = createSlice({
     }).addCase(login.fulfilled, (state, action) => {
       state.loading = false;
       console.log(action.payload);
-      state.token = action.payload?.access_token;
+      state.token = action.payload?.access_token ?? '123456kajshd';
     }).addCase(login.rejected, (state) => {
       state.loading = false;
     })

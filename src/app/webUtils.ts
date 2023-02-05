@@ -1,4 +1,4 @@
-import { LOGIN_URL, AZURE_FUNCTION } from './constants';
+import { LOGIN_URL, GET_DATA_URL } from './constants';
 
 export const asyncPostRequestUnauthorized = async (username: string, password: string) => {
 
@@ -17,7 +17,7 @@ export const asyncPostRequestUnauthorized = async (username: string, password: s
 
 
   try {
-    const response =  await fetch(AZURE_FUNCTION, options)
+    const response =  await fetch(LOGIN_URL, options)
 
     const data = await response.json()
 
@@ -26,4 +26,25 @@ export const asyncPostRequestUnauthorized = async (username: string, password: s
     console.log(e)
   }
 
+}
+
+export const asyncGetRequestAuthorized = async (token: string) => {
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  });
+
+  const options: RequestInit = {
+    method: 'GET',
+    headers
+  }
+
+  try {
+    const response = await fetch(GET_DATA_URL, options);
+
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 }

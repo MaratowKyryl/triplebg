@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import AppLoading from './app/components/AppLoading';
 import { useAppSelector, useAppDispatch } from './app/hooks';
 import { login } from './features/auth/authSlice';
 import Data from './features/data/Data';
@@ -10,11 +11,14 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // if (!token && !loading) {
-    //   // console.log('Rerender')
-    //   dispatch(login({username: 'monitoradmin@stark.com', password: 'M123456!' }))
-    // }
+    if (!token && !loading) {
+      dispatch(login({username: 'monitoradmin@stark.com', password: 'M123456!' }))
+    }
   }, [token]);
+
+  if (loading) {
+    return <AppLoading />
+  }
 
   return (
     <div className="App">
