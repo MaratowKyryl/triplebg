@@ -12,7 +12,7 @@ export default function Data() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!data && ! loading && token) {
+    if (!data && !loading && token) {
       dispatch(getData(token))
     }
   }, [])

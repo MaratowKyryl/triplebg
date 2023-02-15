@@ -30,7 +30,7 @@ export const dataSlice = createSlice({
       state.loading = true;
     }).addCase(getData.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload?.data ?? dummyData;
+      state.data = action.payload ?? dummyData;
     }).addCase(getData.rejected, (state) => {
       state.loading = false;
     })
